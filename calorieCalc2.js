@@ -47,7 +47,7 @@ function getTotalCalories() {
     for (i = 0; i < caloriesPerDay.length; i++) {
         runningTotal = runningTotal + caloriesPerDay[i]
     }
-
+return getTotalCalories()
     alert("You've consumed " + runningTotal + " calories this week.")
 }
 
