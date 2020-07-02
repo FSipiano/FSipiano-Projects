@@ -47,10 +47,12 @@ function getTotalCalories() {
     for (i = 0; i < caloriesPerDay.length; i++) {
         runningTotal = runningTotal + caloriesPerDay[i]
     }
-
+   
+    
     alert("You've consumed " + runningTotal + " calories this week.")
+    return 400
 }
-return getTotalCalories()
+
 
 idealDailyCalories = idealDailyCalories * 7
 
