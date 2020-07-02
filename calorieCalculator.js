@@ -47,25 +47,24 @@ function getTotalCalories() {
 
 
     alert("You've consumed " + runningTotal + " calories this week.")
-    return 0
+    return 400
 }
 var idealDailyCalories = 1500
 
 idealDailyCalories = idealDailyCalories * 7
 
 
-
 function getIdealCalories() {
-    return idealDailyCalories
+    return idealDailyCalories 
 }
-console.log(getIdealCalories())
+console.log(getIdealCalories)
 
 function calculateHealthPlan() {
 
     var actualCalories = getTotalCalories()
     var idealCalories = getIdealCalories()
 
-    if (actualCalories === idealCalories) {
+        if (actualCalories === idealCalories) {
         alert('You matched your calorie goal exactly this week')
     }
     else if (actualCalories > idealCalories) {
