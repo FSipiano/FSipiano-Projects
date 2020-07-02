@@ -38,6 +38,8 @@ function getCaloriesByDay() {
             alert("Please enter valid day")
     }
 }
+    var idealDailyCalories = 1500
+
 function getTotalCalories() {
     var runningTotal = 0
 
@@ -45,19 +47,21 @@ function getTotalCalories() {
         runningTotal = runningTotal + caloriesPerDay[i]
     }
 
-
+}
     alert("You've consumed " + runningTotal + " calories this week.")
     return 400
-}
-var idealDailyCalories = 1500
 
-idealDailyCalories = idealDailyCalories * 7
+
 
 
 function getIdealCalories() {
-    return idealDailyCalories 
+   
+idealDailyCalories = idealDailyCalories * 7
+return idealDailyCalories
 }
-console.log(getIdealCalories)
+
+
+console.log(idealDailyCalories)
 
 function calculateHealthPlan() {
 
