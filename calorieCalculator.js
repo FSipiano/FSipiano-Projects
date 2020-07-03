@@ -1,5 +1,6 @@
 var caloriesPerDay = [0, 0, 0, 0, 0, 0, 0]
 
+var idealDailyCalories = parseInt(prompt('Please enter how many calories you would like to consume on average per day'), 10)
 caloriesPerDay[0] = parseInt(prompt('Enter calories for Monday'), 10)
 caloriesPerDay[1] = parseInt(prompt('Enter calories for Tuesday'), 10)
 caloriesPerDay[2] = parseInt(prompt('Enter calories for Wednesday'), 10)
@@ -7,9 +8,6 @@ caloriesPerDay[3] = parseInt(prompt('Enter calories for Thursday'), 10)
 caloriesPerDay[4] = parseInt(prompt('Enter calories for Friday'), 10)
 caloriesPerDay[5] = parseInt(prompt('Enter calories for Saturday'), 10)
 caloriesPerDay[6] = parseInt(prompt('Enter calories for Sunday'), 10)
-
-var idealDailyCalories = 60
-console.log(idealWeeklyCalories)
 
 alert("You've consumed " + getTotalCalories() + " calories this week.")
 
@@ -45,7 +43,7 @@ function getCaloriesByDay() {
     }
 }
 
-function getTotalCalories() {
+function getTotalWeeklyCalories() {
 
     var runningTotal = 0
     for (i = 0; i < caloriesPerDay.length; i++) {
@@ -56,27 +54,22 @@ function getTotalCalories() {
 }
 
 function getIdealWeeklyCalories() {
-    idealDailyCalories = idealDailyCalories * 7
-    idealDailyCalories = idealWeeklyCalories
+    return idealDailyCalories * 7
 
-    return idealWeeklyCalories
 }
-
-
 function calculateHealthPlan() {
 
-    var actualCalories = getTotalCalories()
-    var idealDailyCalories = getIdealCalories()
-
-    if (actualCalories === idealDailyCalories) {
+    var actualWeeklyCalories = getTotalWeeklyCalories()
+    var idealWeeklyCalories = getIdealWeeklyCalories()
+    if (actualWeeklyCalories === idealWeeklyCalories) {
         alert('You matched your calorie goal exactly this week')
     }
-    else if (actualCalories > idealDailyCalories) {
+    else if (actualWeeklyCalories > idealWeeklyCalories) {
         alert('You have exceeded your calorie goal for this week')
     }
-    else if (actualCalories < idealDailyCalories) {
+    else if (actualWeeklyCalories < idealWeeklyCalories) {
         alert('You are below your calorie goal for this week')
-    } else if (actualCalories < 100) {
+    } else if (actualWeeklyCalories < 100) {
         alert('You are dead')
     }
     else { alert('Error') }
