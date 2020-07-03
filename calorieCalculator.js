@@ -1,7 +1,6 @@
-
-// /////////////////
 var caloriesPerDay = [0, 0, 0, 0, 0, 0, 0]
 
+var idealDailyCalories = parseInt(prompt('Please enter how many calories you would like to consume on average per day'), 10)
 caloriesPerDay[0] = parseInt(prompt('Enter calories for Monday'), 10)
 caloriesPerDay[1] = parseInt(prompt('Enter calories for Tuesday'), 10)
 caloriesPerDay[2] = parseInt(prompt('Enter calories for Wednesday'), 10)
@@ -10,11 +9,14 @@ caloriesPerDay[4] = parseInt(prompt('Enter calories for Friday'), 10)
 caloriesPerDay[5] = parseInt(prompt('Enter calories for Saturday'), 10)
 caloriesPerDay[6] = parseInt(prompt('Enter calories for Sunday'), 10)
 
-getTotalCalories()
+alert("You've consumed " + getTotalCalories() + " calories this week.")
+
+calculateHealthPlan()
+
 
 function getCaloriesByDay() {
 
-    switch (inputDays) {
+    switch (days) {
         case 'Monday':
             alert(caloriesPerDay[0])
             break
@@ -37,46 +39,39 @@ function getCaloriesByDay() {
             alert(caloriesPerDay[6])
             break
         default:
-            alert("Please enter valid day")
+            alert("Whoops, something went wrong")
     }
 }
 
-function getTotalCalories() {
-    var runningTotal = 0
+function getTotalWeeklyCalories() {
 
+    var runningTotal = 0
     for (i = 0; i < caloriesPerDay.length; i++) {
         runningTotal = runningTotal + caloriesPerDay[i]
+
     }
-
-    alert("You've consumed " + runningTotal + " calories this week.")
+    return runningTotal
 }
 
-idealDailyCalories = idealDailyCalories * 7
-
-var idealDailyCalories = 1500
-
-function getIdealCalories() {
+function getIdealWeeklyCalories() {
     return idealDailyCalories * 7
+
 }
-
-console.log(getIdealCalories())
-
 function calculateHealthPlan() {
 
-var actualCalories = getTotalCalories()
-var idealCalories = getIdealCalories()
-
-    if (actualCalories == idealCalories) {
+    var actualWeeklyCalories = getTotalWeeklyCalories()
+    var idealWeeklyCalories = getIdealWeeklyCalories()
+    if (actualWeeklyCalories === idealWeeklyCalories) {
         alert('You matched your calorie goal exactly this week')
     }
-    else if (actualCalories < idealCalories) {
+    else if (actualWeeklyCalories > idealWeeklyCalories) {
         alert('You have exceeded your calorie goal for this week')
     }
-    else if (actualCalories > idealCalories) {
+    else if (actualWeeklyCalories < idealWeeklyCalories) {
         alert('You are below your calorie goal for this week')
-    } else {
-        alert('Error')
+        
+    } else if (actualWeeklyCalories < 100) {
+        alert('You need to see a doctor, you are not eating anywhere enough! Less than 100 calories...')
     }
+    else { alert('Something went wrong') }
 }
-
-calculateHealthPlan()
