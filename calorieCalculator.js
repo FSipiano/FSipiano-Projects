@@ -35,49 +35,51 @@ function getCaloriesByDay() {
             alert(caloriesPerDay[6])
             break
         default:
-            alert("Please enter valid day")
+            alert("Whoops, something went wrong")
     }
+
 }
-    var idealDailyCalories = 1500
+
+var idealDailyCalories = 1500
 
 function getTotalCalories() {
-    var runningTotal = 0
 
+    var runningTotal = 0
     for (i = 0; i < caloriesPerDay.length; i++) {
         runningTotal = runningTotal + caloriesPerDay[i]
+
+        return runningTotal
     }
-
+   
 }
-    alert("You've consumed " + runningTotal + " calories this week.")
-    return 400
 
-
-
+alert("You've consumed " + runningTotal + " calories this week.")
 
 function getIdealCalories() {
-   
-idealDailyCalories = idealDailyCalories * 7
-return idealDailyCalories
+    idealDailyCalories = idealDailyCalories * 7
+    idealDailyCalories = idealWeeklyCalories
+return idealWeeklyCalories
 }
+ 
 
-
-console.log(idealDailyCalories)
+console.log(getIdealCalories)
 
 function calculateHealthPlan() {
 
     var actualCalories = getTotalCalories()
-    var idealCalories = getIdealCalories()
+    var idealDailyCalories = getIdealCalories()
 
-        if (actualCalories === idealCalories) {
+    if (actualCalories === idealDailyCalories) {
         alert('You matched your calorie goal exactly this week')
     }
-    else if (actualCalories > idealCalories) {
+    else if (actualCalories > idealDailyCalories) {
         alert('You have exceeded your calorie goal for this week')
     }
-    else if (actualCalories < idealCalories) {
+    else if (actualCalories < idealDailyCalories) {
         alert('You are below your calorie goal for this week')
-    } else {
-        alert('Error')
+    } else if (actualCalories < 100){
+        alert('You are dead')
     }
+    else {alert('Error')}
 }
 calculateHealthPlan()
