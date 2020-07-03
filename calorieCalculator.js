@@ -69,8 +69,9 @@ function calculateHealthPlan() {
     }
     else if (actualWeeklyCalories < idealWeeklyCalories) {
         alert('You are below your calorie goal for this week')
+        
     } else if (actualWeeklyCalories < 100) {
-        alert('You are dead')
+        alert('You need to see a doctor, you are not eating anywhere enough! Less than 100 calories...')
     }
-    else { alert('Error') }
+    else { alert('Something went wrong') }
 }
