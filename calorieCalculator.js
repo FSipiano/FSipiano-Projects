@@ -9,7 +9,7 @@ caloriesPerDay[4] = parseInt(prompt('Enter calories for Friday'), 10)
 caloriesPerDay[5] = parseInt(prompt('Enter calories for Saturday'), 10)
 caloriesPerDay[6] = parseInt(prompt('Enter calories for Sunday'), 10)
 
-alert("You've consumed " + getTotalCalories() + " calories this week.")
+alert("You've consumed " + getTotalWeeklyCalories() + " calories this week.")
 
 calculateHealthPlan()
 
