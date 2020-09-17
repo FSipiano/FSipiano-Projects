@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px 0;
+    background: #a6b9f1;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(63, 65, 226);
+}
+
+.grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+    margin: 5px;
+}
+
+.card,
+.back,
+.front {
+    height: 150px;
+    width: 150px;
+}
+
+.back,
+.front {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    z-index: 2;
+    background: #9ae4bf url('../img/question.gif') no-repeat center center / contain;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: #9ae4bf;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.selected {
+    transform: rotateY(180deg);
+}
+
+.match .front {
+    background: #9ae4bf !important;
+}
