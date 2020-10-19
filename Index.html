@@ -75,17 +75,18 @@
   </form>
 
   <h2 id="todo-header">To do</h2>
-  <ul>
+  <ul id="todoAdded">
 
   </ul>
 
-  <button id="done">Done!</button>
+  <button id="done" onClick="todoMaker">Done!</button>
   <button id="clear">Clear All</button>
   <div>
     <script>
       var form = document.querySelector('form');
       var todoList = document.querySelector('ul');
-      var button = document.querySelector('button');
+      var clearAllButton = document.getElementById('clear');
+      let doneButton = document.getElementById('done');
       var input = document.getElementById('user-todo');
 
 
@@ -118,8 +119,12 @@
         todoMaker(storage[i]);
       }
 
-      button.addEventListener('click', function () {
-
+      doneButton.addEventListener('click', () => {
+        let todoAdded = document.getElementById('todoAdded');
+        todoAdded.innerHTML += `<li>${input.value}</li`;
+        console.log(input.value);
+      });
+      clearAllButton.addEventListener('click', function () {
 
         localStorage.clear();
         while (todoList.firstChild) {
